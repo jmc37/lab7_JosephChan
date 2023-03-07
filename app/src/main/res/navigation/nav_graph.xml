@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/prepareFragment">
+
+    <fragment
+        android:id="@+id/prepareFragment"
+        android:name="com.example.lab7_josephchan.PrepareFragment"
+        android:label="fragment_prepare"
+        tools:layout="@layout/fragment_prepare" />
+    <fragment
+        android:id="@+id/questsFragment"
+        android:name="com.example.lab7_josephchan.QuestsFragment"
+        android:label="fragment_quests"
+        tools:layout="@layout/fragment_quests" />
+    <fragment
+        android:id="@+id/questDetailsFragment"
+        android:name="com.example.lab7_josephchan.QuestDetailsFragment"
+        android:label="fragment_quest_details"
+        tools:layout="@layout/fragment_quest_details" />
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.lab7_josephchan.SuccessFragment"
+        android:label="fragment_success"
+        tools:layout="@layout/fragment_success" />
+    <fragment
+        android:id="@+id/failFragment"
+        android:name="com.example.lab7_josephchan.FailFragment"
+        android:label="fragment_fail"
+        tools:layout="@layout/fragment_fail" />
+</navigation>
