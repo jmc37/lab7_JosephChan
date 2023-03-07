@@ -10,4 +10,6 @@
     <string name="potion">Potion</string>
     <string name="compass">Compass</string>
     <string name="shield">Shield</string>
+    <string name="savedHyrule">Saved Hyrule</string>
+    <string name="failedSave">Failed to save Hyrule</string>
 </resources>
