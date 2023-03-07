@@ -2,4 +2,12 @@
     <string name="app_name">lab7_JosephChan</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chooseItem">Choose Item</string>
+    <string name="chooseSidekick">Choose Sidekick</string>
+    <string name="fairy">Fairy</string>
+    <string name="goron">Goron</string>
+    <string name="chicken">Chicken</string>
+    <string name="potion">Potion</string>
+    <string name="compass">Compass</string>
+    <string name="shield">Shield</string>
 </resources>
