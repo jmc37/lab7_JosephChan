@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_actionbar_prepare"
+        android:id="@+id/prepareFragment"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Item" />
+        android:title="@string/prepare" />
     <item
-        android:id="@+id/menu_actionbar_quest"
+        android:id="@+id/questsFragment"
         android:icon="@drawable/ic_baseline_map_24"
-        android:title="Item" />
+        android:title="@string/quests" />
 </menu>

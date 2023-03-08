@@ -9,7 +9,14 @@
         android:id="@+id/prepareFragment"
         android:name="com.example.lab7_josephchan.PrepareFragment"
         android:label="fragment_prepare"
-        tools:layout="@layout/fragment_prepare" />
+        tools:layout="@layout/fragment_prepare" >
+        <action
+            android:id="@+id/action_prepareFragment_to_questsFragment"
+            app:destination="@id/questsFragment"
+            app:popUpToSaveState="true"
+            app:popUpTo="@id/prepareFragment"
+            />
+    </fragment>
     <fragment
         android:id="@+id/questsFragment"
         android:name="com.example.lab7_josephchan.QuestsFragment"

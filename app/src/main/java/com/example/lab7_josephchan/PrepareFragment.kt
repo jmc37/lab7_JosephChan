@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +41,16 @@ class PrepareFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_prepare, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val questsViewModel1:QuestsViewModel by activityViewModels()
+        val questsViewModel2:QuestsViewModel by viewModels()
+        val questsViewModel = QuestsViewModel()
+        val button = view.findViewById<Button>(R.id.button)
+        button.setOnClickListener(
+                questsViewModel.startNewQuest(R.id.sidekick_radio_main, R.id.item_radio_main)
+        )
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of

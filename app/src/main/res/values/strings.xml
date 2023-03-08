@@ -12,4 +12,6 @@
     <string name="shield">Shield</string>
     <string name="savedHyrule">Saved Hyrule</string>
     <string name="failedSave">Failed to save Hyrule</string>
+    <string name="prepare">Prepare</string>
+    <string name="quests">Quests</string>
 </resources>
