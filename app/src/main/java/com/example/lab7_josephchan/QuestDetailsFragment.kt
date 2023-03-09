@@ -1,5 +1,6 @@
 package com.example.lab7_josephchan
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,20 +40,21 @@ class QuestDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_quest_details, container, false)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val questsViewModel2:QuestsViewModel by activityViewModels()
         val text = view.findViewById<TextView>(R.id.textview_questdetails)
         val quest = questsViewModel2.quests[arguments?.getInt("Here")!!]
-        val quest_id= quest.id.toString()
-        val quest_sickkick= quest.sidekick.toString()
-        val quest_item= quest.item.toString()
-        val quest_savedHyrule= quest.savedHyrule.toString()
+        val questId= quest.id.toString()
+        val questSickkick= quest.sidekick.toString()
+        val questItem= quest.item.toString()
+        val questSavedHyrule= quest.savedHyrule.toString()
 
         text.text =
-            "Quest ID: $quest_id \nQuest Sidekick: $quest_sickkick \nQuest item: $quest_item " +
-                    "\nQuest save hyrule: $quest_savedHyrule \n"
+            "Quest ID: $questId \nQuest Sidekick: $questSickkick \nQuest item: $questItem " +
+                    "\nQuest save hyrule: $questSavedHyrule \n"
     }
     companion object {
         /**

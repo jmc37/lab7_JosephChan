@@ -1,10 +1,10 @@
 package com.example.lab7_josephchan
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
@@ -27,10 +27,11 @@ class QuestListAdapter(private val mList: ArrayList<Quest>,  private val listene
     }
 
     // binds the list items to a view
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         mList[position].id?.let {
-            holder.button.setText("QUEST ID: ${it}")
+            holder.button.text = "QUEST ID: $it"
         }
         holder.button.setOnClickListener {
             listener.onNavigateToQuestDetails(mList[position])
