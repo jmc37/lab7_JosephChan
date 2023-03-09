@@ -70,21 +70,21 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton6"
+                android:id="@+id/radioButton_shield"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/shield"
                 android:textColor="#FFFFFF" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioButton_potion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/potion"
                 android:textColor="#FFFFFF" />
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/radioButton_compass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/compass"
@@ -93,12 +93,12 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_marginTop="50dp"
-            android:text="Button" />
+            android:text="@string/start" />
 
     </LinearLayout>
 

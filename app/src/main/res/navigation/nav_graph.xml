@@ -16,6 +16,12 @@
             app:popUpToSaveState="true"
             app:popUpTo="@id/prepareFragment"
             />
+        <action
+            android:id="@+id/action_prepareFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+        <action
+            android:id="@+id/action_prepareFragment_to_failFragment"
+            app:destination="@id/failFragment" />
     </fragment>
     <fragment
         android:id="@+id/questsFragment"

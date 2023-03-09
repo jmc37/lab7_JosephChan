@@ -14,4 +14,5 @@
     <string name="failedSave">Failed to save Hyrule</string>
     <string name="prepare">Prepare</string>
     <string name="quests">Quests</string>
+    <string name="start">Start</string>
 </resources>

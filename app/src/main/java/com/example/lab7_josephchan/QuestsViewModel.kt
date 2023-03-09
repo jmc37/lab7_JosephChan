@@ -3,20 +3,15 @@ package com.example.lab7_josephchan
 import androidx.lifecycle.ViewModel
 import kotlin.random.Random
 
-class QuestsViewModel(val quests: ArrayList<Quest> = arrayListOf()) : ViewModel() {
-    fun startNewQuest( sidekick:Sidekick, item:Item){
-        val quest = Quest()
-        quest.id = Random.nextInt(1, 999)
-        quest.sidekick = sidekick
-        quest.item = item
-        quest.savedHyrule = didSaveHyrule()
-        quests.add(quest)
+class QuestsViewModel:ViewModel() {
+    val quests = ArrayList<Quest>()
+
+    fun startNewQuest(sidekick: Sidekick, item: Item){
+        val currentQuest = Quest((1..999).random(), sidekick, item, didSaveHyrule())
+        quests.add(currentQuest)
     }
 
     private fun didSaveHyrule(): Boolean {
-        if(Random.nextInt(1, 10) > 5 ){
-            return true
-        }
-        return false
+        return listOf(true, false).random()
     }
 }

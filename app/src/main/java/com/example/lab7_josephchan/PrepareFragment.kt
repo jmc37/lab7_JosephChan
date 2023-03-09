@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.RadioGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,10 +21,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [PrepareFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PrepareFragment : Fragment() {
+class PrepareFragment : Fragment(), QuestResultListener  {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var sidekick: Sidekick? = null
+    private var item: Item? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,13 +47,38 @@ class PrepareFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val questsViewModel1:QuestsViewModel by activityViewModels()
-        val questsViewModel2:QuestsViewModel by viewModels()
-        val questsViewModel = QuestsViewModel()
-        val button = view.findViewById<Button>(R.id.button)
-        button.setOnClickListener(
-                questsViewModel.startNewQuest(R.id.sidekick_radio_main, R.id.item_radio_main)
-        )
+
+        val button = view.findViewById<Button>(R.id.button_start)
+        val prepareViewModel: QuestsViewModel by activityViewModels()
+
+        view.findViewById<RadioGroup>(R.id.sidekick_radio_main).setOnCheckedChangeListener { _, checkedId ->
+            sidekick = when (checkedId) {
+                R.id.radioButton_fairy -> Sidekick.FAIRY
+                R.id.radioButton_goron -> Sidekick.GORON
+                R.id.radioButton_chicken -> Sidekick.CHICKEN
+                else -> null
+            }
+            println("Selected sidekick: $sidekick")
+        }
+        view.findViewById<RadioGroup>(R.id.item_radio_main).setOnCheckedChangeListener { _, checkedId ->
+            item = when (checkedId) {
+                R.id.radioButton_potion -> Item.POTION
+                R.id.radioButton_compass -> Item.COMPASS
+                R.id.radioButton_shield -> Item.SHIELD
+                else -> null
+            }
+            println("Selected sidekick: $item")
+        }
+
+        button.setOnClickListener {
+            prepareViewModel.startNewQuest(sidekick!!, item!!)
+            val savedHyruleValue = prepareViewModel.quests.last().savedHyrule
+            if (savedHyruleValue == true) {
+                onSavedHyrule()
+            } else {
+                onDidNotSaveHyrule()
+            }
+        }
     }
     companion object {
         /**
@@ -69,5 +98,13 @@ class PrepareFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    override fun onSavedHyrule() {
+        findNavController().navigate(R.id.action_prepareFragment_to_successFragment)
+
+    }
+
+    override fun onDidNotSaveHyrule() {
+        findNavController().navigate(R.id.action_prepareFragment_to_failFragment)
     }
 }

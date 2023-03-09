@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -37,6 +39,21 @@ class QuestDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_quest_details, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val questsViewModel2:QuestsViewModel by activityViewModels()
+        val text = view.findViewById<TextView>(R.id.textview_questdetails)
+        val quest = questsViewModel2.quests[arguments?.getInt("Here")!!]
+        val quest_id= quest.id.toString()
+        val quest_sickkick= quest.sidekick.toString()
+        val quest_item= quest.item.toString()
+        val quest_savedHyrule= quest.savedHyrule.toString()
+
+        text.text =
+            "Quest ID: $quest_id \nQuest Sidekick: $quest_sickkick \nQuest item: $quest_item " +
+                    "\nQuest save hyrule: $quest_savedHyrule \n"
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
